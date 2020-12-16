@@ -21,6 +21,7 @@ import (
 	"time"
 )
 
+// 可以在编译时时确保productImpl完成了IProduct接口
 var _ product.IProduct = new(productImpl)
 
 type productImpl struct {

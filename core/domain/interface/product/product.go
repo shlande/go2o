@@ -42,13 +42,23 @@ var (
 		"err_item_nil_reject_remark", "原因不能为空")
 )
 
+// 为什么需要定义一个IProduct？
+// ：为了防止Domain的操作直接修改实体
+// 觉得领域定义interface的唯一理由就是隔离基础设施认知
 type (
 	IProduct interface {
 		// 获取聚合根编号
 		GetAggregateRootId() int64
+		// GetValue是可以被理解的
+		// 因为为了防止被一个聚合的属性被聚合以外的操作修改
+		// 必须使用Getter或者使用GetValue返回值对象来获取所需的内容
+		// 在一个聚合有很多属性的情况下，GetValue会变得更加利于使用
+		// TODO：但是Product应该是一个值对象更加好一些
 		// 获取商品的值
 		GetValue() Product
+		// 这里感觉又有一点点贫血模式的感觉了
 		// 设置产品的值
+		// SellerUpdate()
 		SetValue(v *Product) error
 		// 设置产品属性
 		SetAttr(attr []*AttrValue) error
@@ -69,6 +79,7 @@ type (
 		Destroy() error
 	}
 
+	// 这里的interface没有问题，肯定是需要被定义的
 	IProductRepo interface {
 		// 创建产品
 		CreateProduct(*Product) IProduct
