@@ -2,10 +2,6 @@ module go2o
 
 go 1.15
 
-replace github.com/ixre/gof => ../github.com/ixre/gof
-
-replace github.com/ixre/tto => ../github.com/ixre/tto
-
 replace google.golang.org/grpc => google.golang.org/grpc v1.26.0
 
 //replace github.com/lucas-clemente/quic-go => github.com/lucas-clemente/quic-go v0.14.1
@@ -27,10 +23,7 @@ require (
 	github.com/google/uuid v1.1.2 // indirect
 	github.com/ixre/alidayu v0.0.0-20160128071321-7eadea36c79c
 	github.com/ixre/gof v1.10.1
-	github.com/ixre/tto v0.3.20
-	github.com/labstack/echo v3.3.10+incompatible
 	github.com/labstack/echo/v4 v4.1.17
-	github.com/labstack/gommon v0.3.0 // indirect
 	github.com/lib/pq v1.9.0 // indirect
 	github.com/mattn/go-colorable v0.1.8 // indirect
 	github.com/micro/go-micro v1.18.0
@@ -42,7 +35,6 @@ require (
 	github.com/prometheus/client_golang v1.7.1 // indirect
 	github.com/robfig/cron/v3 v3.0.1
 	github.com/smartwalle/resize v1.0.0
-	github.com/valyala/fasttemplate v1.2.1 // indirect
 	go.etcd.io/etcd v3.3.25+incompatible
 	go.uber.org/multierr v1.6.0 // indirect
 	go.uber.org/zap v1.16.0 // indirect
